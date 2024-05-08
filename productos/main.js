@@ -2,7 +2,7 @@ let DOM =document.querySelector("#root")
 DOM.innerHTML=`
 
 <header></header>
-<main></main>
+<main class="productos"></main>
 <footer></footer>
 
 `
