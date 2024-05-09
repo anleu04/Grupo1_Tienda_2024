@@ -6,4 +6,44 @@ footer{
     grid-row-end:3 ;
     grid-column-start: 1;
     grid-column-end: 3;
+
+    grid-template-columns: 10% 1fr 1fr 1fr  10%;
+    
 }
+
+
+
+.correos{
+    grid-column-start: 2;
+    font-size: 20px;
+}
+
+.numeros{
+    grid-column-start: 3;
+    font-size: 20px;
+}
+
+.fb{
+    grid-column-start: 3;
+    width: 45px
+}
+.ig{
+    grid-column-start: 3;
+    width: 45px;
+}
+.tw{
+    grid-column-start: 3;
+    width: 45px;
+}
+.Ofrecemos{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    grid-column-start: 4;
+}
+.Ofrecemos2{
+    display: flex;
+    flex-direction:row;
+}
+
+
