@@ -1,9 +1,13 @@
-.productos{
+.main{
     background-color: rgba(63, 198, 252, 0.757);
+    
 
     display: grid;
-    grid-row-start: 2;
-    grid-row-end:2 ;
+
+    grid-template-rows: 3% 1fr ;
+
+    grid-row-start: 3;
+    grid-row-end:3 ;
     grid-column-start: 1;
     grid-column-end: 3;
 

@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -14,6 +15,5 @@ html{
     margin: auto;
 
     display: grid;
-    grid-template-rows: 18% 1fr 10% ;
-    grid-template-columns: 20% 1fr ;
+    grid-template-rows: 18% 3% 1fr 10% ;
 }

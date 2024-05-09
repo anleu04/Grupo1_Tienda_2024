@@ -1,0 +1,14 @@
+.categorias{
+    display: grid;
+
+
+    grid-template-columns: repeat(auto,1fr);
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start:1 ;
+    grid-column-end: 3;
+
+    background-color: rgba(3, 3, 3, 0.573);
+    color: rgb(233, 231, 231);
+
+}
