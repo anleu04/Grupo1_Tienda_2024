@@ -16,7 +16,7 @@ header.innerHTML=`
         </div>
     </div>
     <div class="descripcionHeader">
-        <h2 class="titulo">The Best Clothes </h2>
+        <h2 class="titulo_H">The Best Clothes </h2>
         <div class="desc">
             <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem harum, magni velit labore aliquid possimus ad accusamus earum et laudantium dolor </div>
         </div>

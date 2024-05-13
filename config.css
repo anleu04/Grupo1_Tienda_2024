@@ -15,5 +15,5 @@ html{
     margin: auto;
 
     display: grid;
-    grid-template-rows: 18% 3% 1fr 10% ;
+    grid-template-rows: 18% 2% auto 10% ;
 }
