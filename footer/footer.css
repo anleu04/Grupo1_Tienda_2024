@@ -1,5 +1,10 @@
 footer{
-    background-color: red;
+
+    align-items: center;
+
+    background-color: rgba(3, 3, 3, 0.573);
+    color: rgb(194, 192, 192);
+
 
     display: grid;
     grid-row-start: 4;
@@ -7,43 +12,68 @@ footer{
     grid-column-start: 1;
     grid-column-end: 3;
 
-    grid-template-columns: 10% 1fr 1fr 1fr  10%;
+    grid-template-columns: 8% 30% 1fr 1fr 1fr 8%;
     
 }
+.descTienda{
+    display: grid;
 
+    width: 100%;
+    height: 90%;
 
+    grid-template-rows: 20% 1fr ;
+
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
 
 .correos{
-    grid-column-start: 2;
-    font-size: 20px;
+    display: grid;
+
+    width: 100%;
+    height: 90%;
+
+    
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 3;
+    grid-column-end: 3;
+}
+.Apps img{
+    width: 25px;
+    cursor: pointer;
 }
 
-.numeros{
-    grid-column-start: 3;
-    font-size: 20px;
-}
+.Shop{
+    display: grid;
 
-.fb{
-    grid-column-start: 3;
-    width: 45px
-}
-.ig{
-    grid-column-start: 3;
-    width: 45px;
-}
-.tw{
-    grid-column-start: 3;
-    width: 45px;
-}
-.Ofrecemos{
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
+    width: 100%;
+    height: 90%;
+
+    grid-template-rows: 20% 1fr ;
+
+    
+    grid-row-start: 1;
+    grid-row-end: 1;
     grid-column-start: 4;
+    grid-column-end: 4;
 }
-.Ofrecemos2{
-    display: flex;
-    flex-direction:row;
+.opening{
+    display: grid;
+    
+    width: 100%;
+    height: 90%;
+    
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 5;
+    grid-column-end: 5;
 }
+
+
+
+
 
 
