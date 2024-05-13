@@ -27,6 +27,7 @@ footer{
     grid-row-end: 1;
     grid-column-start: 2;
     grid-column-end: 2;
+    font-size: 15px;
 }
 
 .correos{
@@ -40,6 +41,7 @@ footer{
     grid-row-end: 1;
     grid-column-start: 3;
     grid-column-end: 3;
+    font-size: 15px;
 }
 .Apps img{
     width: 25px;
@@ -59,6 +61,7 @@ footer{
     grid-row-end: 1;
     grid-column-start: 4;
     grid-column-end: 4;
+    font-size: 15px;
 }
 .opening{
     display: grid;
@@ -70,6 +73,7 @@ footer{
     grid-row-end: 1;
     grid-column-start: 5;
     grid-column-end: 5;
+    font-size: 15px;
 }
 
 

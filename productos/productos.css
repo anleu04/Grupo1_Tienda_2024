@@ -2,6 +2,8 @@
     justify-content: space-around;
 
     display: grid;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
     grid-row-start: 3;
     grid-row-end:3 ;
