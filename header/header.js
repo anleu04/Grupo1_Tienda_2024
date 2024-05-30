@@ -11,13 +11,40 @@ header.innerHTML=`
             <div class="opcion">Contact US </div>
         </div>
         <div class="iconos">
-            <div class="icono"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#D9D9D9"><path d="m480-144-50-45q-100-89-165-152.5t-102.5-113Q125-504 110.5-545T96-629q0-89 61-150t150-61q49 0 95 21t78 59q32-38 78-59t95-21q89 0 150 61t61 150q0 43-14 83t-51.5 89q-37.5 49-103 113.5T528-187l-48 43Zm0-97q93-83 153-141.5t95.5-102Q764-528 778-562t14-67q0-59-40-99t-99-40q-35 0-65.5 14.5T535-713l-35 41h-40l-35-41q-22-26-53.5-40.5T307-768q-59 0-99 40t-40 99q0 33 13 65.5t47.5 75.5q34.5 43 95 102T480-241Zm0-264Z"/></svg></div>
+            <div class="icono" id="icono">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e9e7e7"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+            <div id="modal1" class="modal1">
+            <div class="modal-content1">
+            <span class="close1"></span>
+
+            <body>
+                <div class="container">
+                    <div class="login-box">
+                        <h2>Iniciar Sesión</h2>
+                        <form>
+                            <div class="user-box">
+                                <input type="text" name="username" required="">
+                                <label>Nombre de usuario</label>
+                            </div>
+                            <div class="user-box">
+                                <input type="password" name="password" required="">
+                                <label>Contraseña</label>
+                            </div>
+                            <button type="submit" class="login-button">Entrar</button>
+                        </form>
+                    </div>
+                </div>
+            </body>
+            <p></p>
+            </div>
+            </div>
+            </div>
             <!-- Modal structure -->
             <div class="icono_2" id="icono_2">
                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#D9D9D9"><path d="M263.79-96Q234-96 213-117.21t-21-51Q192-198 213.21-219t51-21Q294-240 315-218.79t21 51Q336-138 314.79-117t-51 21Zm432 0Q666-96 645-117.21t-21-51Q624-198 645.21-219t51-21Q726-240 747-218.79t21 51Q768-138 746.79-117t-51 21ZM253-696l83 192h301l82-192H253Zm-31-72h570q14 0 20.5 11t1.5 23L702.63-476.14Q694-456 676.5-444T637-432H317l-42 72h493v72H276q-43 0-63.5-36.15-20.5-36.16.5-71.85l52-90-131-306H48v-72h133l41 96Zm114 264h301-301Z"/></svg>
                 <div id="modal" class="modal">
                 <div class="modal-content">
-                <span class="close">&times;</span>
+                <span class="close"></span>
                 <p>Contenido de la ventana modal.</p>
                 </div>
 </div>
@@ -33,6 +60,8 @@ header.innerHTML=`
         <input class="buscador" type="text"  placeholder="🔍Search">
         <div class="img"></div>
     </div>
+
+    
 
     
 
@@ -55,5 +84,24 @@ document.querySelector('.close').addEventListener('click', function() {
 window.addEventListener('click', function(event) {
     if (event.target === document.getElementById('modal')) {
         document.getElementById('modal').style.display = 'none';
+    }
+});
+
+
+
+// Esto es para el sing in 
+document.getElementById('icono').addEventListener('click', function() {
+    document.getElementById('modal1').style.display = 'block';
+    
+});
+
+document.querySelector('.close1').addEventListener('click', function() {
+    document.getElementById('modal1').style.display = 'none';
+    
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target === document.getElementById('modal1')) {
+        document.getElementById('modal1').style.display = 'none';
     }
 });
