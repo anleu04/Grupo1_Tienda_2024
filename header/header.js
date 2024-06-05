@@ -17,11 +17,10 @@ header.innerHTML=`
             <div class="modal-content1">
             <span class="close1"></span>
 
-            <body>
+            <div>
                 <div class="container">
                     <div class="login-box">
                         <h2>Iniciar Sesión</h2>
-                        <form>
                             <div class="user-box">
                                 <input type="text" name="username" required="">
                                 <label>Nombre de usuario</label>
@@ -31,10 +30,9 @@ header.innerHTML=`
                                 <label>Contraseña</label>
                             </div>
                             <button type="submit" class="login-button">Entrar</button>
-                        </form>
                     </div>
                 </div>
-            </body>
+            </div>
             <p></p>
             </div>
             </div>
