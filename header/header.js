@@ -16,15 +16,13 @@ header.innerHTML = `
         <div class="iconos">
          <div class="bienvenido">
                     <span>Bienvenido</span>
-                    <span id="cambiar_nombre">Usuario</span>
+                    <span id="cambiar_nombre"></span>
                 </div>
             <div class="usuarios" id="usuarios">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="http://www.w3.org/2000/svg" width="24px" fill="#e9e7e7">
-                    <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/>
-                </svg>
+            <svg    class="iconos" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF"><path d="M720-400v-120H600v-80h120v-120h80v120h120v80H800v120h-80Zm-360-80q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm80-80h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0-80Zm0 400Z"/></svg>
                 <div id="modal1" class="modal1">
                     <div class="modal-content1">
-                        <span class="close1">&times;</span>
+                        <span class="close1"></span>
                         <div>
                             <div class="container">
                                 <div class="login-box">
@@ -46,12 +44,10 @@ header.innerHTML = `
                 </div>
             </div>
             <div class="carrito" id="carrito">
-                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="http://www.w3.org/2000/svg" width="20px" fill="#D9D9D9">
-                    <path d="M263.79-96Q234-96 213-117.21t-21-51Q192-198 213.21-219t51-21Q294-240 315-218.79t21 51Q336-138 314.79-117t-51 21Zm432 0Q666-96 645-117.21t-21-51Q624-198 645.21-219t51-21Q726-240 747-218.79t21 51Q768-138 746.79-117t-51 21ZM253-696l83 192h301l82-192H253Zm-31-72h570q14 0 20.5 11t1.5 23L702.63-476.14Q694-456 676.5-444T637-432H317l-42 72h493v72H276q-43 0-63.5-36.15-20.5-36.16.5-71.85l52-90-131-306H48v-72h133l41 96Zm114 264h301-301Z"/>
-                </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg>
                 <div id="modal" class="modal">
                     <div class="modal-content">
-                        <span class="close">&times;</span>
+                        <span class="close"></span>
                     </div>
                 </div>
             </div>
@@ -95,6 +91,8 @@ document.getElementById('login-button').addEventListener('click', async (event) 
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
 
+    document.querySelector('#cambiar_nombre').innerHTML=email;
+
     try {
         // Verificar las credenciales con la API
         const response = await fetch('https://fakestoreapi.com/users');
@@ -108,7 +106,7 @@ document.getElementById('login-button').addEventListener('click', async (event) 
             // Cierra el modal
             document.getElementById('modal1').style.display = 'none';
         } else {
-            alert('Credenciales incorrectas');
+            alert('Bienvenido ' + email);
         }
     } catch (error) {
         console.error('Error al autenticar el usuario:', error);
@@ -116,11 +114,12 @@ document.getElementById('login-button').addEventListener('click', async (event) 
 });
 /* --- */
 
-
+// Dentro del evento 'DOMContentLoaded'
 document.addEventListener('DOMContentLoaded', async () => {
     const categoriesContainer = document.querySelector('.categorias');
     const productsContainer = document.querySelector('.productos');
     const resetButton = document.getElementById('reset-button');
+    let selectedCategories = new Set();
 
     // Obtener y mostrar las categorías
     try {
@@ -136,24 +135,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         // Mostrar productos de la primera categoría por defecto
-        showProducts(categories[0]);
+        showProducts([...selectedCategories]);
     } catch (error) {
         console.error('Error al obtener categorías:', error);
     }
-
-    // Función para mostrar productos por categoría
-    const showProducts = async (category) => {
+    
+    const showProducts = async (categories) => {
         try {
             const response = await fetch('https://fakestoreapi.com/products');
             const products = await response.json();
-            const filteredProducts = category ? 
-                products.filter(product => product.category === category) :
-                products;  // Mostrar todos los productos si no se pasa una categoría
 
-            // Limpiar productos actuales
+            const filteredProducts = products.filter(product =>
+                categories.includes(product.category)
+            );
+
             productsContainer.innerHTML = '';
 
-            // Mostrar productos filtrados
             filteredProducts.forEach(product => {
                 const productDiv = document.createElement('div');
                 productDiv.classList.add('product');
@@ -161,6 +158,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <img src="${product.image}" alt="${product.title}">
                     <h3>${product.title}</h3>
                     <p>$${product.price}</p>
+                    <button class="anadir_carrito">añadir al carrito</button>
                 `;
                 productsContainer.appendChild(productDiv);
             });
@@ -169,68 +167,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
-    // Manejar clic en los botones de categoría
     categoriesContainer.addEventListener('click', (event) => {
         if (event.target.classList.contains('category-button')) {
             const category = event.target.dataset.category;
-            showProducts(category);
+
+            if (selectedCategories.has(category)) {
+                selectedCategories.delete(category);
+                event.target.classList.remove('selected');
+            } else {
+                selectedCategories.add(category);
+                event.target.classList.add('selected');
+            }
+
+            showProducts([...selectedCategories]);
         }
     });
 
     // Manejar clic en el botón de reset
     resetButton.addEventListener('click', () => {
-        showProducts(); // Mostrar todos los productos
-    });
-
-    // Configuración de modales
-    const modals = [
-        { icon: 'usuarios', modal: 'modal1', close: 'close1' },
-        { icon: 'carrito', modal: 'modal', close: 'close' }
-    ];
-
-    modals.forEach(({ icon, modal, close }) => {
-        document.getElementById(icon).addEventListener('click', () => {
-            document.getElementById(modal).style.display = 'block';
+        selectedCategories.clear();
+        document.querySelectorAll('.category-button').forEach(button => {
+            button.classList.remove('selected');
         });
-
-        document.querySelector(`.${close}`).addEventListener('click', () => {
-            document.getElementById(modal).style.display = 'none';
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === document.getElementById(modal)) {
-                document.getElementById(modal).style.display = 'none';
-            }
-        });
-    });
-
-    // Manejar el inicio de sesión
-    document.getElementById('login-button').addEventListener('click', async (event) => {
-        event.preventDefault(); // Evita el envío del formulario
-
-        // Obtén los valores del formulario
-        const email = document.getElementById('login-email').value;
-        const password = document.getElementById('login-password').value;
-
-        try {
-            // Verificar las credenciales con la API
-            const response = await fetch('https://fakestoreapi.com/users');
-            const users = await response.json();
-            const user = users.find(user => user.email === email && user.password === password);
-
-            if (user) {
-                // Si las credenciales son correctas, actualiza el nombre de usuario
-                document.getElementById('cambiar_nombre').textContent = user.name;
-
-                // Cierra el modal
-                document.getElementById('modal1').style.display = 'none';
-            } else {
-                alert('Credenciales incorrectas');
-            }
-        } catch (error) {
-            console.error('Error al autenticar el usuario:', error);
-        }
+        showProducts([...selectedCategories]); // Mostrar todos los productos
     });
 });
+
 
 

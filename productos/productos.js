@@ -68,7 +68,6 @@ function cargar_productos(data) {
     let tod = document.querySelector(`.productos`);
     tod.innerHTML = productosHTML;
 
-    // Add event listeners for the "Add to Cart" buttons
     document.querySelectorAll('.anadir_carrito').forEach(button => {
         button.addEventListener('click', (event) => {
             const id = event.target.getAttribute('data-id');
