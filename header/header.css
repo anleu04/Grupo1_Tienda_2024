@@ -351,17 +351,23 @@ input::placeholder{
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
+    height: 2rem;
+    text-align: center;
+
 }
 
-.category-button {
+.categoria {
+    width: auto;
     background-color: #333;
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    text-align: center;
+
 }
 
-.category-button:hover {
+.categoria:hover {
     background-color: #555;
 }
 

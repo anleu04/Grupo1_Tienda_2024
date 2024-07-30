@@ -1,4 +1,6 @@
 let cart = [];
+let allProducts = [];
+let selectedCategories = new Set();
 
 function addToCart(product) {
     cart.push(product);
@@ -45,7 +47,7 @@ function item(id, image, title, description, price, category) {
         <div class="descripcion">${desc_corta}</div>
         <div class="precio">price ${price}
         </div>
-        <button class="anadir_carrito" data-id="${id}" data-title="${title}" data-price="${price}" data-image="${image}">añadir al carrtio</button>
+        <button class="anadir_carrito" data-id="${id}" data-title="${title}" data-price="${price}" data-image="${image}">añadir al carrito</button>
         <div class="id"></div>
     </div>
     `;
@@ -83,12 +85,66 @@ async function fetchProductos() {
     try {
         const res = await fetch('https://fakestoreapi.com/products');
         const data = await res.json();
-        cargar_productos(data);
+        allProducts = data; // Store all products initially
+        cargar_productos(allProducts); // Load all products by default
     } catch (error) {
         console.log("error en ", error);
     }
 }
 
 fetchProductos();
+
+// Lógica de categorías
+
+async function fetchCategories() {
+    try {
+        const response = await fetch('https://fakestoreapi.com/products/categories');
+        const categories = await response.json();
+        displayCategories(categories);
+    } catch (error) {
+        console.error('Error fetching categories:', error);
+    }
+}
+
+function displayCategories(categories) {
+    const categoriasContainer = document.querySelector('.categorias');
+    categoriasContainer.innerHTML = categories.map(category => `
+        <div class="categoria" data-category="${category}">${category}</div>
+    `).join('');
+
+    document.querySelectorAll('.categoria').forEach(categoria => {
+        categoria.addEventListener('click', async (event) => {
+            const category = event.target.getAttribute('data-category');
+
+            if (selectedCategories.has(category)) {
+                // Deselect the category
+                selectedCategories.delete(category);
+            } else {
+                // Select the category
+                selectedCategories.add(category);
+            }
+
+            if (selectedCategories.size === 0) {
+                // If no categories are selected, display all products
+                cargar_productos(allProducts);
+            } else {
+                // Fetch and display products for all selected categories
+                const allSelectedProducts = [];
+                for (const selectedCategory of selectedCategories) {
+                    try {
+                        const response = await fetch(`https://fakestoreapi.com/products/category/${selectedCategory}`);
+                        const products = await response.json();
+                        allSelectedProducts.push(...products);
+                    } catch (error) {
+                        console.error(`Error fetching products for category ${selectedCategory}:`, error);
+                    }
+                }
+                cargar_productos(allSelectedProducts);
+            }
+        });
+    });
+}
+
+fetchCategories();
 
 export { cargar_productos };
